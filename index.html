@@ -85,6 +85,7 @@ a{color:#0000ee}
 .wallpaper{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 18%}
 .wallpaper-shade{position:absolute; inset:0; background:linear-gradient(90deg, rgba(0,0,0,.38) 0%, rgba(0,0,0,0) 42%), linear-gradient(0deg, rgba(0,0,0,.30), rgba(0,0,0,0) 30%)}
 .mobile-menu-head{display:none}
+.phone-status{display:none}
 
 /* Icons */
 .icons{position:absolute; left:14px; top:14px; bottom:calc(var(--taskbar-h) + 12px); display:flex; flex-direction:column; flex-wrap:wrap; gap:6px 10px; align-content:flex-start; z-index:3; max-height:100%}
@@ -94,6 +95,7 @@ a{color:#0000ee}
 .icon:focus-visible, .icon.selected{border-color:rgba(255,255,255,.8); outline:none}
 .icon.selected .lbl, .icon:active .lbl{background:var(--w98-navy)}
 .icon.bin{position:absolute; right:18px; bottom:calc(var(--taskbar-h) + 14px); left:auto; top:auto; z-index:3}
+.icon.bin-grid{display:none}
 
 /* Windows */
 .window{position:absolute; width:min(620px, calc(100vw - 28px)); max-height:calc(100% - var(--taskbar-h) - 26px); background:var(--w98); border:2px solid; border-color:#dfdfdf #404040 #404040 #dfdfdf; box-shadow:3px 3px 0 rgba(0,0,0,.35); display:none; flex-direction:column; z-index:10}
@@ -259,16 +261,49 @@ footer.seo-foot a{color:#f4f4ea}
 
 /* ============ MOBILE: his phone concept ============ */
 @media (max-width:760px){
-  .desktop{height:100dvh; min-height:520px}
-  .mobile-menu-head{display:flex; justify-content:space-between; align-items:center; position:absolute; left:0; right:0; bottom:var(--taskbar-h); z-index:5; padding:10px 16px; color:#fff}
-  .mobile-menu-head .pixel{font-size:30px; text-shadow:2px 2px 0 rgba(0,0,0,.6)}
-  .icons{left:8px; right:8px; top:auto; bottom:calc(var(--taskbar-h) + 148px); flex-direction:row; flex-wrap:wrap; justify-content:center; max-height:52%}
-  .icon{width:78px}
-  .icon .lbl{font-size:17px}
-  .icon.bin{position:absolute; right:10px; bottom:calc(var(--taskbar-h) + 58px); left:auto; top:auto}
-  .window, .window.wide{position:fixed; left:6px!important; right:6px; top:36px!important; width:auto; max-height:calc(100dvh - 96px); z-index:400}
+  .desktop{height:100dvh; min-height:520px; --softbar-h:50px}
+  /* Phone status strip: signal, clock, battery — like his phone-interface design */
+  .phone-status{display:flex; align-items:center; justify-content:space-between; position:absolute; top:0; left:0; right:0; z-index:6; padding:7px 14px 16px; background:linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.22) 62%, rgba(0,0,0,0)); color:#fff; font-family:"VT323",monospace; font-size:20px; line-height:1; pointer-events:none}
+  .phone-status .sig{display:inline-flex; align-items:flex-end; gap:2px; filter:drop-shadow(1px 1px 0 rgba(0,0,0,.5))}
+  .phone-status .sig i{display:block; width:4px; background:#fff}
+  .phone-status .sig i:nth-child(1){height:5px}
+  .phone-status .sig i:nth-child(2){height:8px}
+  .phone-status .sig i:nth-child(3){height:11px}
+  .phone-status .sig i:nth-child(4){height:14px}
+  .phone-status .pclock{text-shadow:1px 1px 0 #000; font-variant-numeric:tabular-nums}
+  .phone-status .batt{width:29px; height:14px; filter:drop-shadow(1px 1px 0 rgba(0,0,0,.5))}
+  /* Icon grid: 3 × 3 phone menu over the wallpaper, face stays clear above */
+  .icons{left:16px; right:16px; top:auto; bottom:calc(var(--softbar-h) + 22px); display:grid; grid-template-columns:repeat(3, 1fr); gap:16px 6px; max-height:none; align-content:start}
+  .icon{width:auto; padding:8px 2px 6px; min-height:96px; justify-content:flex-start}
+  .icon svg{width:54px; height:54px}
+  .icon .lbl{font-size:19px}
+  .icon.bin{position:static}
+  .icon.bin-grid{display:flex}
+  .icon.bin-corner{display:none}
+  .icon:active .lbl{background:var(--w98-navy)}
+  /* Softkey bar replaces the desktop taskbar */
+  .taskbar{display:none}
+  .mobile-menu-head{display:flex; align-items:stretch; position:absolute; left:0; right:0; bottom:0; height:calc(var(--softbar-h) + env(safe-area-inset-bottom)); padding-bottom:env(safe-area-inset-bottom); z-index:600; background:var(--w98); border-top:2px solid #dfdfdf; box-shadow:0 -1px 0 #808080}
+  .softkey{flex:1; background:none; border:0; font-family:"VT323",monospace; font-size:25px; line-height:1; color:#000; cursor:pointer; padding:0 18px}
+  .softkey:first-child{text-align:left}
+  .softkey:last-child{text-align:right}
+  .softkey:active{background:#d8d8d8}
+  .softkey.on{text-decoration:underline; text-underline-offset:4px}
+  .start-menu{left:8px; right:8px; width:auto; bottom:calc(var(--softbar-h) + env(safe-area-inset-bottom) + 6px); z-index:590}
+  .start-menu button, .start-menu a{padding:11px 12px; font-size:15px}
+  /* Windows open as full phone screens under the status strip, above the icons */
+  .window, .window.wide{position:fixed; left:6px!important; right:6px; top:34px!important; width:auto; max-height:calc(100dvh - var(--softbar-h) - 48px); z-index:400}
+  .window [data-min]{display:none}
   .titlebar{cursor:default}
+  .winbody{padding:14px 14px 18px}
+  .gallery98{grid-template-columns:repeat(auto-fill, minmax(92px,1fr))}
+  .agenda98 li{grid-template-columns:92px 1fr}
   .read-link{display:none}
+  /* Readable profile, phone-sized */
+  .seo{padding-top:40px}
+  .seo h1{font-size:29px!important}
+  .seo h2{font-size:25px}
+  .seo section{padding:22px 0}
 }
 </style>
 </head>
@@ -278,6 +313,12 @@ footer.seo-foot a{color:#f4f4ea}
 <div class="desktop" id="desktop" aria-label="OTAT desktop — open a folder to explore">
   <img class="wallpaper" src="assets/hero.jpg" alt="OTAT performing live on stage, holding a microphone under warm yellow stage light" fetchpriority="high" />
   <div class="wallpaper-shade"></div>
+
+  <div class="phone-status" aria-hidden="true">
+    <span class="sig"><i></i><i></i><i></i><i></i></span>
+    <span class="pclock" id="clockM">--:--</span>
+    <svg class="batt" viewBox="0 0 29 14" aria-hidden="true"><rect x="1" y="1.5" width="22" height="11" fill="none" stroke="#fff" stroke-width="1.6"/><rect x="3.2" y="3.7" width="14" height="6.6" fill="#fff"/><rect x="24.6" y="4.5" width="3.2" height="5" fill="#fff"/></svg>
+  </div>
 
   <nav class="icons" aria-label="Desktop folders">
     <button class="icon" data-open="win-about" type="button">
@@ -312,14 +353,21 @@ footer.seo-foot a{color:#f4f4ea}
       <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="10" y="5" width="28" height="38" fill="#fff" stroke="#000"/><path d="M28 5 L38 15 L28 15 Z" fill="#d9d9d9" stroke="#000"/><ellipse cx="24" cy="25" rx="8" ry="5" fill="none" stroke="#000"/><circle cx="24" cy="25" r="2.6" fill="#000080"/></svg>
       <span class="lbl">??</span>
     </button>
+    <button class="icon bin bin-grid" data-open="win-bin" type="button" aria-label="Recycle Bin">
+      <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 16 L36 16 L33 42 L15 42 Z" fill="#d9d9d9" stroke="#000"/><rect x="9" y="12" width="30" height="5" fill="#808080" stroke="#000"/><rect x="20" y="8" width="8" height="4" fill="#808080" stroke="#000"/><path d="M19 21 L20.5 37 M29 21 L27.5 37 M24 21 L24 37" stroke="#888"/></svg>
+      <span class="lbl">Recycle Bin</span>
+    </button>
   </nav>
 
-  <button class="icon bin" data-open="win-bin" type="button" aria-label="Recycle Bin">
+  <button class="icon bin bin-corner" data-open="win-bin" type="button" aria-label="Recycle Bin">
     <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M12 16 L36 16 L33 42 L15 42 Z" fill="#d9d9d9" stroke="#000"/><rect x="9" y="12" width="30" height="5" fill="#808080" stroke="#000"/><rect x="20" y="8" width="8" height="4" fill="#808080" stroke="#000"/><path d="M19 21 L20.5 37 M29 21 L27.5 37 M24 21 L24 37" stroke="#888"/></svg>
     <span class="lbl">Recycle Bin</span>
   </button>
 
-  <div class="mobile-menu-head" aria-hidden="true"><span class="pixel">— Menu —</span><span class="pixel">Exit</span></div>
+  <div class="mobile-menu-head">
+    <button class="softkey" id="softMenuBtn" type="button" aria-expanded="false" aria-controls="startMenu">— Menu —</button>
+    <button class="softkey" id="softExitBtn" type="button">Exit</button>
+  </div>
 
   <!-- ABOUT WINDOW -->
   <section class="window wide" id="win-about" aria-label="About OTAT">
@@ -803,6 +851,8 @@ Website: otat.me</pre>
       openWin(el.getAttribute('data-open'));
       document.getElementById('startMenu').classList.remove('open');
       document.getElementById('startBtn').classList.remove('on');
+      var smb2 = document.getElementById('softMenuBtn');
+      if (smb2) { smb2.classList.remove('on'); smb2.setAttribute('aria-expanded', 'false'); }
     });
     if (el.classList.contains('icon')) {
       el.addEventListener('dblclick', function(){ openWin(el.getAttribute('data-open')); });
@@ -886,11 +936,40 @@ Website: otat.me</pre>
   document.addEventListener('click', function(e){
     if (!startMenu.contains(e.target) && e.target !== startBtn) {
       startMenu.classList.remove('open'); startBtn.classList.remove('on');
+      var smb3 = document.getElementById('softMenuBtn');
+      if (smb3) { smb3.classList.remove('on'); smb3.setAttribute('aria-expanded', 'false'); }
     }
   });
   document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape') { startMenu.classList.remove('open'); startBtn.classList.remove('on'); }
+    if (e.key === 'Escape') { startMenu.classList.remove('open'); startBtn.classList.remove('on'); var smb = document.getElementById('softMenuBtn'); if (smb) { smb.classList.remove('on'); smb.setAttribute('aria-expanded', 'false'); } }
   });
+
+  // Phone softkeys: Menu opens the menu list, Exit backs out (menu first, then top window)
+  var softMenuBtn = document.getElementById('softMenuBtn');
+  var softExitBtn = document.getElementById('softExitBtn');
+  if (softMenuBtn) {
+    softMenuBtn.addEventListener('click', function(e){
+      e.stopPropagation();
+      var open = startMenu.classList.toggle('open');
+      softMenuBtn.classList.toggle('on', open);
+      softMenuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+  if (softExitBtn) {
+    softExitBtn.addEventListener('click', function(){
+      if (startMenu.classList.contains('open')) {
+        startMenu.classList.remove('open');
+        if (softMenuBtn) { softMenuBtn.classList.remove('on'); softMenuBtn.setAttribute('aria-expanded', 'false'); }
+        return;
+      }
+      var top = null, topZ = -1;
+      document.querySelectorAll('.window.open').forEach(function(w){
+        var z = parseInt(w.style.zIndex || '10', 10);
+        if (z >= topZ) { topZ = z; top = w; }
+      });
+      if (top) closeWin(top);
+    });
+  }
 
   // Keep open windows inside the viewport when it resizes (e.g. tablet rotation)
   var resizeT;
@@ -902,13 +981,16 @@ Website: otat.me</pre>
     }, 120);
   });
 
-  // Clock
+  // Clock (taskbar + phone status strip)
   var clock = document.getElementById('clock');
+  var clockM = document.getElementById('clockM');
   function tick(){
     var d = new Date();
     var h = d.getHours(), m = d.getMinutes();
     var ap = h >= 12 ? 'PM' : 'AM'; h = h % 12 || 12;
-    clock.textContent = h + ':' + (m < 10 ? '0' + m : m) + ' ' + ap;
+    var t = h + ':' + (m < 10 ? '0' + m : m) + ' ' + ap;
+    clock.textContent = t;
+    if (clockM) clockM.textContent = t;
   }
   tick(); setInterval(tick, 20000);
 
