@@ -4,12 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>OTAT — Links</title>
-<meta name="description" content="OTAT — Ya Leil out now. Watch, listen, follow.">
+<meta name="description" content="OTAT — Ya Leil out now. Watch on YouTube, listen on Spotify, follow OTAT.">
 <meta property="og:title" content="OTAT — Ya Leil">
 <meta property="og:description" content="Watch the official video, listen on Spotify, follow OTAT.">
 <meta property="og:image" content="https://i.ytimg.com/vi/PtMwXhSpEnE/hqdefault.jpg">
 <meta property="og:url" content="https://otat.me/linkinbio">
-<meta name="theme-color" content="#0c0c0e">
+<meta name="theme-color" content="#000000">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@500;700&family=Tajawal:wght@500;800&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -25,82 +28,60 @@
 }
 </script>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
-  body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    background: #0c0c0e;
-    color: #f2ead8;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    padding: 40px 18px 48px;
-  }
-  .wrap { width: 100%; max-width: 430px; }
-  header { text-align: center; margin-bottom: 26px; }
-  .name {
-    font-size: 34px; font-weight: 800; letter-spacing: 6px;
-    color: #f5c518; text-transform: uppercase;
-  }
-  .sub { margin-top: 6px; font-size: 13px; letter-spacing: 2.5px; color: #9a917e; text-transform: uppercase; }
-  .hero {
-    border: 1px solid #2a2a2e; border-radius: 18px; overflow: hidden;
-    background: #131315; margin-bottom: 14px;
-  }
-  .hero img { display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; }
-  .hero-body { padding: 18px 18px 20px; text-align: center; }
-  .hero-kicker { font-size: 11px; letter-spacing: 3px; color: #9a917e; text-transform: uppercase; }
-  .hero-title { font-size: 26px; font-weight: 700; margin: 6px 0 16px; }
-  .hero-title .ar { color: #f5c518; }
-  .hero-btns { display: flex; gap: 10px; }
-  .btn {
-    flex: 1; display: block; text-align: center; text-decoration: none;
-    padding: 14px 4px; border-radius: 12px; font-size: 13px; font-weight: 700;
-    letter-spacing: .2px; white-space: nowrap;
-  }
-  .btn-yt { background: #f5c518; color: #141414; }
-  .btn-sp { background: #1db954; color: #0c0c0e; }
-  .row {
-    display: flex; align-items: center; gap: 14px;
-    text-decoration: none; color: #f2ead8;
-    background: #131315; border: 1px solid #2a2a2e; border-radius: 14px;
-    padding: 16px 18px; margin-bottom: 10px;
-    font-size: 16px; font-weight: 600;
-  }
-  .row:active { background: #1b1b1e; }
-  .row .chev { margin-left: auto; color: #6d675a; font-weight: 400; }
-  .row .tag { margin-left: auto; font-size: 12px; color: #9a917e; font-weight: 400; letter-spacing: 1px; }
-  .row .tag + .chev { margin-left: 10px; }
-  footer { text-align: center; margin-top: 26px; font-size: 12px; color: #6d675a; letter-spacing: 1.5px; }
-  footer a { color: #9a917e; text-decoration: none; }
+  body { margin: 0; background: #000; }
+  .o { width: 100%; max-width: 390px; min-height: 100vh; margin: 0 auto; background: #000; color: #fff; font-family: 'Inter', sans-serif; box-sizing: border-box; position: relative; }
+  .o * { box-sizing: border-box; }
+  .o a { color: inherit; text-decoration: none; }
+  .o a:focus-visible { outline: 3px solid #f5c518; outline-offset: 2px; }
+  .ar { font-family: 'Tajawal', sans-serif; font-weight: 800; }
+  .hero { position: relative; width: 100%; height: 420px; overflow: hidden; }
+  .hero img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block; }
+  .hero .sh { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,0) 30%, rgba(0,0,0,0) 45%, #000 100%); }
+  .hero h1 { position: absolute; left: 20px; top: 20px; margin: 0; font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 30px; letter-spacing: .28em; }
+  .hero p.l { position: absolute; right: 20px; top: 26px; margin: 0; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; }
+  .hero .rt { position: absolute; left: 20px; right: 20px; bottom: 8px; }
+  .hero .lb { font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: #f5c518; font-weight: 700; }
+  .hero h2 { margin: 2px 0 0; font-family: 'Bebas Neue', sans-serif; font-weight: 400; font-size: 86px; line-height: .9; letter-spacing: .01em; }
+  .hero h2 .ar { font-size: 44px; margin-left: 12px; color: #f5c518; }
+  .bx { padding: 0 20px; }
+  .bt { display: grid; gap: 10px; }
+  .b { min-height: 56px; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; border-radius: 12px; font-weight: 700; font-size: 15px; letter-spacing: .04em; text-transform: uppercase; transition: transform .15s; }
+  .b:hover { transform: translateX(4px); }
+  .b1 { background: #e62117; color: #fff; }
+  .b2 { background: #1db954; color: #06210f; }
+  .rw { display: flex; justify-content: space-between; align-items: center; min-height: 58px; border-bottom: 1px solid #2a2a2a; font-family: 'Bebas Neue', sans-serif; font-size: 30px; letter-spacing: .06em; }
+  .rw small { font-family: 'Inter', sans-serif; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: #9c9c9c; margin-left: auto; margin-right: 12px; }
+  .rw:hover { color: #f5c518; }
+  .lk { margin-top: 22px; border-top: 1px solid #2a2a2a; }
+  .ft { margin-top: 22px; text-align: center; font-size: 11px; letter-spacing: .2em; color: #777; text-transform: uppercase; padding-bottom: 26px; }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div class="name">OTAT</div>
-    <div class="sub">Amsterdam / Salé</div>
-  </header>
-
-  <section class="hero">
-    <img src="https://i.ytimg.com/vi/PtMwXhSpEnE/hqdefault.jpg" alt="OTAT — Ya Leil (Official Music Video)">
-    <div class="hero-body">
-      <div class="hero-kicker">Latest release</div>
-      <div class="hero-title"><span class="ar">يا ليل</span> · Ya Leil</div>
-      <div class="hero-btns">
-        <a class="btn btn-yt" id="ytBtn" href="https://www.youtube.com/watch?v=PtMwXhSpEnE">▶ Watch on YouTube</a>
-        <a class="btn btn-sp" id="spBtn" href="https://open.spotify.com/album/35lcYvl7Zq4BRfozzhLDph">Listen on Spotify</a>
-      </div>
+<div class="o">
+  <div class="hero">
+    <img src="./assets/ya-leil-sq.jpg" alt="Ya Leil">
+    <div class="sh"></div>
+    <h1>OTAT</h1>
+    <p class="l">Amsterdam / Salé</p>
+    <div class="rt">
+      <div class="lb">Latest release</div>
+      <h2>Ya Leil <span class="ar">يا ليل</span></h2>
     </div>
-  </section>
-
-  <a class="row" href="https://open.spotify.com/artist/491mdcFHq3U4pW3imSwcyT">Spotify <span class="tag">ARTIST</span><span class="chev">›</span></a>
-  <a class="row" href="https://www.youtube.com/@OTATmusic">YouTube <span class="tag">CHANNEL</span><span class="chev">›</span></a>
-  <a class="row" href="https://www.tiktok.com/@otatmusic">TikTok <span class="chev">›</span></a>
-  <a class="row" href="https://www.instagram.com/otatmusic">Instagram <span class="chev">›</span></a>
-  <a class="row" href="https://otat.me">otat.me <span class="tag">WEBSITE</span><span class="chev">›</span></a>
-
-  <footer>© OTAT</footer>
+  </div>
+  <div class="bx">
+    <div class="bt">
+      <a class="b b1" id="ytBtn" href="https://www.youtube.com/watch?v=PtMwXhSpEnE">Watch on YouTube <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
+      <a class="b b2" id="spBtn" href="https://open.spotify.com/album/35lcYvl7Zq4BRfozzhLDph">Listen on Spotify <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"></path></svg></a>
+    </div>
+    <nav class="lk" aria-label="Links">
+      <a class="rw" href="https://open.spotify.com/artist/491mdcFHq3U4pW3imSwcyT"><span>Spotify</span><small>Artist</small><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      <a class="rw" href="https://www.youtube.com/@OTATmusic"><span>YouTube</span><small>Channel</small><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      <a class="rw" href="https://www.tiktok.com/@otatmusic"><span>TikTok</span><small>Clips</small><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      <a class="rw" href="https://www.instagram.com/otatmusic"><span>Instagram</span><small>@otatmusic</small><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      <a class="rw" href="https://otat.me"><span>otat.me</span><small>Website</small><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+    </nav>
+    <div class="ft">© OTAT</div>
+  </div>
 </div>
 
 <script>
