@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OTAT — Links</title>
+<meta name="description" content="OTAT — Ya Leil out now. Watch, listen, follow.">
+<meta property="og:title" content="OTAT — Ya Leil">
+<meta property="og:description" content="Watch the official video, listen on Spotify, follow OTAT.">
+<meta property="og:image" content="https://i.ytimg.com/vi/PtMwXhSpEnE/hqdefault.jpg">
+<meta property="og:url" content="https://otat.me/linkinbio">
+<meta name="theme-color" content="#0c0c0e">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MusicGroup",
+  "name": "OTAT",
+  "url": "https://otat.me",
+  "sameAs": [
+    "https://www.youtube.com/@OTATmusic",
+    "https://open.spotify.com/artist/491mdcFHq3U4pW3imSwcyT",
+    "https://www.tiktok.com/@otatmusic",
+    "https://www.instagram.com/otatmusic"
+  ]
+}
+</script>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background: #0c0c0e;
+    color: #f2ead8;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 40px 18px 48px;
+  }
+  .wrap { width: 100%; max-width: 430px; }
+  header { text-align: center; margin-bottom: 26px; }
+  .name {
+    font-size: 34px; font-weight: 800; letter-spacing: 6px;
+    color: #f5c518; text-transform: uppercase;
+  }
+  .sub { margin-top: 6px; font-size: 13px; letter-spacing: 2.5px; color: #9a917e; text-transform: uppercase; }
+  .hero {
+    border: 1px solid #2a2a2e; border-radius: 18px; overflow: hidden;
+    background: #131315; margin-bottom: 14px;
+  }
+  .hero img { display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; }
+  .hero-body { padding: 18px 18px 20px; text-align: center; }
+  .hero-kicker { font-size: 11px; letter-spacing: 3px; color: #9a917e; text-transform: uppercase; }
+  .hero-title { font-size: 26px; font-weight: 700; margin: 6px 0 16px; }
+  .hero-title .ar { color: #f5c518; }
+  .hero-btns { display: flex; gap: 10px; }
+  .btn {
+    flex: 1; display: block; text-align: center; text-decoration: none;
+    padding: 14px 8px; border-radius: 12px; font-size: 15px; font-weight: 700;
+    letter-spacing: .4px;
+  }
+  .btn-yt { background: #f5c518; color: #141414; }
+  .btn-sp { background: #1db954; color: #0c0c0e; }
+  .row {
+    display: flex; align-items: center; gap: 14px;
+    text-decoration: none; color: #f2ead8;
+    background: #131315; border: 1px solid #2a2a2e; border-radius: 14px;
+    padding: 16px 18px; margin-bottom: 10px;
+    font-size: 16px; font-weight: 600;
+  }
+  .row:active { background: #1b1b1e; }
+  .row .chev { margin-left: auto; color: #6d675a; font-weight: 400; }
+  .row .tag { margin-left: auto; font-size: 12px; color: #9a917e; font-weight: 400; letter-spacing: 1px; }
+  .row .tag + .chev { margin-left: 10px; }
+  footer { text-align: center; margin-top: 26px; font-size: 12px; color: #6d675a; letter-spacing: 1.5px; }
+  footer a { color: #9a917e; text-decoration: none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="name">OTAT</div>
+    <div class="sub">Amsterdam / Salé</div>
+  </header>
+
+  <section class="hero">
+    <img src="https://i.ytimg.com/vi/PtMwXhSpEnE/hqdefault.jpg" alt="OTAT — Ya Leil (Official Music Video)">
+    <div class="hero-body">
+      <div class="hero-kicker">Latest release</div>
+      <div class="hero-title"><span class="ar">يا ليل</span> · Ya Leil</div>
+      <div class="hero-btns">
+        <a class="btn btn-yt" id="ytBtn" href="https://www.youtube.com/watch?v=PtMwXhSpEnE">▶ Watch</a>
+        <a class="btn btn-sp" id="spBtn" href="https://open.spotify.com/album/35lcYvl7Zq4BRfozzhLDph">Listen</a>
+      </div>
+    </div>
+  </section>
+
+  <a class="row" href="https://open.spotify.com/artist/491mdcFHq3U4pW3imSwcyT">Spotify <span class="tag">ARTIST</span><span class="chev">›</span></a>
+  <a class="row" href="https://www.youtube.com/@OTATmusic">YouTube <span class="tag">CHANNEL</span><span class="chev">›</span></a>
+  <a class="row" href="https://www.tiktok.com/@otatmusic">TikTok <span class="chev">›</span></a>
+  <a class="row" href="https://www.instagram.com/otatmusic">Instagram <span class="chev">›</span></a>
+  <a class="row" href="https://otat.me">otat.me <span class="tag">WEBSITE</span><span class="chev">›</span></a>
+
+  <footer>© OTAT</footer>
+</div>
+
+<script>
+// Deep-link attempt with web fallback: try the native app first;
+// if the app does not take over (page still visible), fall back to the web URL.
+function appJump(appUrl, webUrl) {
+  var jumped = false;
+  function onHide() { jumped = true; }
+  document.addEventListener("visibilitychange", onHide);
+  window.addEventListener("pagehide", onHide);
+  window.location.href = appUrl;
+  setTimeout(function () {
+    document.removeEventListener("visibilitychange", onHide);
+    window.removeEventListener("pagehide", onHide);
+    if (!jumped && !document.hidden) { window.location.href = webUrl; }
+  }, 1400);
+}
+document.getElementById("ytBtn").addEventListener("click", function (e) {
+  e.preventDefault();
+  appJump("youtube://watch?v=PtMwXhSpEnE", "https://www.youtube.com/watch?v=PtMwXhSpEnE");
+});
+document.getElementById("spBtn").addEventListener("click", function (e) {
+  e.preventDefault();
+  appJump("spotify:album:35lcYvl7Zq4BRfozzhLDph", "https://open.spotify.com/album/35lcYvl7Zq4BRfozzhLDph");
+});
+</script>
+</body>
+</html>
